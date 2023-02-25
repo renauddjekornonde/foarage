@@ -379,16 +379,16 @@
             </div>
             <div class="modal-body">
                 <!-- Formulaire pour ajouter un nouvel étudiant -->
-                <form method="POST" >
+                <form method="POST" th:action="@{/createfacture}" th:object="${createfacture}">
                     
                     <div class="form-group">
                         <label for="dateFacturation">Date Facturation</label>
-                        <input type="date" class="form-control" id="dateFacturation" placeholder="" name="dateFaturation" required>
+                        <input type="date" class="form-control" id="dateFacturation" placeholder="" th:field="*{dateFacturation}" required>
                        
                     </div>
                     <div class="form-group">
                         <label for="dateLimite">Date Limite Payement</label>
-                        <input type="date" class="form-control" id="dateLimite" placeholder="" name="dateLimite" required>
+                        <input type="date" class="form-control" id="dateLimite" placeholder="" th:field="*{dateLimite}" required>
                        
                     </div>
                    

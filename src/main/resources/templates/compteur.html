@@ -379,11 +379,11 @@
             </div>
             <div class="modal-body">
                 <!-- Formulaire pour ajouter un nouvel étudiant -->
-                <form method="POST" >
+                <form method="POST" th:action="@{/createcompteur}" th:object="${createcompteur}">
                   
                     <div class="form-group">
                         <label for="numTel">Numéro compteur</label>
-                        <input type="number" class="form-control" id="numero_compteur" name="numero_compteur" placeholder="Phone" required>
+                        <input type="number" class="form-control" id="numero_compteur" th:field="*{numero_compteur}" placeholder="Phone" required>
                      
                     </div>
                    
