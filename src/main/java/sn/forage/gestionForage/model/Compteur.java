@@ -1,14 +1,14 @@
 package sn.forage.gestionForage.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.relational.core.mapping.Column;
+
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,10 +18,10 @@ import org.springframework.data.relational.core.mapping.Column;
 @Table
 public class Compteur {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private int num_compteur;
-    @Column
-    private int id_consommation;
+    @OneToMany(mappedBy = "compteur")
+    private List<Consommation> consommations;
 }
